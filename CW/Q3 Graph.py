@@ -1,6 +1,6 @@
 class WeightedGraph:
     # Constructor
-    def __init__(self, edges, n):
+    # def __init__(self, edges, n):  # only for vertex that are numbers
         # # allocate memory for the adjacency list
         # self.adjacencyList = [[] for _ in range(n)]
         #
@@ -8,6 +8,8 @@ class WeightedGraph:
         # for (src, destination, weight) in edges:
         #     # allocate node in adjacency list from src to destination with weight
         #     self.adjacencyList[src].append((destination, weight))
+        
+    def __init__(self, edges, n):
         self.adjList = {}
 
         for (src, dest, weight) in edges:
@@ -17,7 +19,7 @@ class WeightedGraph:
 
     # Function to list all adjacent Vertices
     def listAdjacentVertex(self, vertex):
-        # return [adj_vertex for (adj_vertex, _) in self.adjacencyList[vertex]]
+        # return [adj_vertex for (adj_vertex, _) in self.adjacencyList[vertex]]  # only for vertex that are numbers
         return [adj_vertex for (adj_vertex, _) in self.adjList[vertex]]
         # iterates over the tuples in the sublist of the adjacency list for a specific vertex,
         # extracts the adjacent vertices, and returns them as a list.
@@ -31,13 +33,14 @@ class WeightedGraph:
         return sum([weight for (_, weight) in self.adjList[vertex]])
 
 
-# Function to print adjacency list representation of a graph
-# def printWeightedGraph(graph):
+# Function to print adjacency list representation of a graph  
+# def printWeightedGraph(graph):  # only for vertex that are numbers
 #     for src in range(len(graph.adjacencyList)):
 #         # print current vertex and all its neighboring vertices with weights
 #         for (destination, weight) in graph.adjacencyList[src]:
 #             print(f'({src} —({weight})—> {destination}) ', end='')
 #         print()
+
 def printWeightedGraph(graph):
     for src in graph.adjList:
         # print current vertex and all its neighboring vertices with weights
